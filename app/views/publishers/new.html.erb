@@ -1,0 +1,20 @@
+<h2 class="center blue-text">Add New Publisher</h2>
+
+<%= form_for @publisher do |f| %>
+
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :name, class:'validate' %>
+          <%= f.label :name %>
+        </div>
+      </div>
+      <div class="row center">
+      <%= f.submit "Submit", class:'waves-effect waves-light btn red' %>
+      <%= link_to "cancel", publishers_path, class:'waves-effect waves-light btn red' %>
+      </div>
+      </form>
+</div>
+
+<% end %>

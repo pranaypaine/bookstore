@@ -1,0 +1,80 @@
+<h2 class="center blue-text">Add New Book</h2>
+
+<%= form_for @book do |f| %>
+
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :title, class:'validate' %>
+          <%= f.label :title %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :isbn, class:'validate' %>
+          <%= f.label :isbn %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :year, class:'validate' %>
+          <%= f.label :year %>
+        </div>
+      </div>
+      <div class="row">
+         <div class="input-field col s12">
+    		<%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select one'} %>
+    		<%= f.label :category %>
+  		</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+    		<%= f.select :author_id, Author.all.collect {|x| [x.first_name + ' ' + x.last_name, x.id]}, {:include_blank => 'Select one'} %>
+    		<%= f.label :author %>
+  		</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+    		<%= f.select :publisher_id, Publisher.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select one'} %>
+    		<%= f.label :publisher %>
+  		</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :format, class:'validate' %>
+          <%= f.label :format %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_area :summary, class:'materialize-textarea' %>
+          <%= f.label :summary %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :price, class:'validate' %>
+          <%= f.label :price %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.number_field :pages, class:'validate' %>
+          <%= f.label :pages %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :buy, class:'validate' %>
+          <%= f.label :buy %>
+        </div>
+      </div>
+      <div class="row center">
+      <%= f.submit "Submit", class:'waves-effect waves-light btn red' %>
+      <%= link_to "cancel", books_path, class:'waves-effect waves-light btn red' %>
+      </div>
+    </form>
+  </div>
+
+<% end %>

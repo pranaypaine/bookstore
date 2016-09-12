@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+    <title>BookStore</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <!-- navbar starts -->
+    <nav class="red darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href='<%= root_path %>' class="brand-logo">BookStore</a>
+    
+      <ul class="right hide-on-med-and-down">
+      <li><a href="<%= about_path %>">About</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Add new<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+        <li><a href="<%= new_book_path %>">Book</a></li>
+        <li class="divider"></li>
+        <li><a href="<%= new_author_path %>">Author</a></li>
+        <li class="divider"></li>
+        <li><a href="<%= new_category_path %>">Category</a></li>
+        <li class="divider"></li>
+        <li><a href="<%= new_publisher_path %>">Publishers</a></li>
+        </ul>
+      <ul id="nav-mobile" class="side-nav ">
+      <li><a href=''>Home</a></li>
+      <li class="divider"></li>
+        <li>
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Add new<i class="material-icons right">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+              <li><a href="">Author</a></li>
+              <li class="divider"></li>
+              <li><a href="">Category</a></li>
+              <li class="divider"></li>
+              <li><a href="#!">Publishers</a></li>
+              <li class="divider"></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    </div>
+  </nav>
+  <div class="container">
+  <div class="row">
+
+      <div class="col s9">
+        <!-- Teal page content  -->
+        <% if flash[:notice]%>
+          
+        <% end %>
+        <% if flash[:alert]%>
+          <script type="text/javascript">
+            Materialize.toast('I am a toast2!', 4000)
+          </script>  
+        <% end %>
+      <%= yield %>  
+      </div>
+      <div class="col s3">
+        <!-- Grey navigation panel -->
+        <%= render 'partials/sidebar' %>
+      </div>
+  </div>
+  </div>
+
+  <footer class="red darken-3 page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Copyright Text
+            </div>
+          </div>
+  </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+      <script type="text/javascript">
+  
+            $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50}, 'rounded');
+            $(".dropdown-button").dropdown();
+            $(".button-collapse").sideNav();
+            $('.parallax').parallax();
+            $('.modal-trigger').leanModal();
+            $('select').material_select();
+            });
+
+      </script>
+    </body>
+  </html>
