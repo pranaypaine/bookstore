@@ -1,2 +1,24 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h3 class="blue-text"><%= @category.name %></h3>
+
+<% @books.each_slice(3) do |book| %>
+<div class="row">
+  <% book.each do |book| %>
+    <div class="col s12 m4">
+    <div class="card hoverable z-depth-3">
+      <div class="card-image">
+      <%= image_tag(book.coverpath) %>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+        <h5><%= book.title %></h5>
+        <p><%= book.year %></p>
+        </div>
+        <div class="card-action center">
+          <a href="<%= book_path(book) %>">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>

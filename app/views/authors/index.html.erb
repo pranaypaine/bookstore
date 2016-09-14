@@ -1,2 +1,20 @@
-<h1>Authors#index</h1>
-<p>Find me in app/views/authors/index.html.erb</p>
+<h3 class="blue-text">Authors</h3>
+<% @authors.each_slice(3) do |author| %>
+<div class="row">
+  <% author.each do |author| %>
+    <div class="col s12 m4">
+    <div class="card hoverable z-depth-3">
+      <div class="card-stacked">
+        <div class="card-content">
+        <h5><%= author.first_name.capitalize + ' ' +author.last_name.capitalize %></h5>
+        </div>
+        <div class="card-action center">
+          <a href="<%= category_path(author.id) %>">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+</div>
+<% end %>

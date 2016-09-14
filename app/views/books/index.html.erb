@@ -1,125 +1,23 @@
-  <div class="col s12 m4">
+<% @books.each_slice(3) do |book| %>
+<div class="row">
+  <% book.each do |book| %>
+    <div class="col s12 m4">
     <div class="card hoverable z-depth-3">
       <div class="card-image">
-      <%= image_tag('covers/1.jpg') %>
+      <%= image_tag(book.coverpath) %>
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        <h5><%= book.title %></h5>
+        <p><%= book.year %></p>
         </div>
         <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
+          <a href="<%= book_path(book) %>">View</a>
         </div>
       </div>
     </div>
   </div>
+  <% end %>
 
-<div class="col s12 m4">
-    <div class="card hoverable z-depth-3">
-      <div class="card-image">
-        <%= image_tag('covers/2.jpg') %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="col s12 m4">
-    <div class="card hoverable z-depth-3">
-      <div class="card-image">
-        <%= image_tag('covers/3.jpg') %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="col s12 m4">
-    <div class="card hoverable z-depth-3">
-      <div class="card-image">
-        <%= image_tag('covers/3.jpg') %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="col s12 m4">
-    <div class="card hoverable z-depth-3">
-      <div class="card-image">
-        <%= image_tag('covers/3.jpg') %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="col s12 m4">
-    <div class="card hoverable z-depth-3">
-      <div class="card-image">
-        <%= image_tag('covers/3.jpg') %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="col s12 m4">
-    <div class="card hoverable z-depth-3">
-      <div class="card-image">
-        <%= image_tag('covers/3.jpg') %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="col s12 m4">
-    <div class="card hoverable z-depth-3">
-      <div class="card-image">
-        <%= image_tag('covers/3.jpg') %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action center">
-          <a href="<%= book_path(1) %>">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+<% end %>

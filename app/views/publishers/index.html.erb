@@ -1,2 +1,17 @@
-<h1>Publishers#index</h1>
-<p>Find me in app/views/publishers/index.html.erb</p>
+<h3 class="blue-text">Publishers</h3>
+<% @publishers.each_slice(3) do |publisher| %>
+<div class="row">
+  <% publisher.each do |publisher| %>
+    <div class="col s12 m4">
+    <div class="card hoverable z-depth-3">
+      <div class="card-stacked">
+        <div class="card-content">
+        <h5><%= publisher.name.capitalize %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+</div>
+<% end %>

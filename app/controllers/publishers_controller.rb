@@ -23,6 +23,7 @@ class PublishersController < ApplicationController
   end
 
   def index
+    @publishers = Publisher.all
   end
 
   def show

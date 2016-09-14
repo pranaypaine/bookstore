@@ -1,23 +1,24 @@
-<h2 class="center blue-text">Book 1</h2>
-<%= image_tag('covers/1.jpg', class:'materialboxed z-depth-2',width:'700') %>
-
+<h2 class="center blue-text"><%= @book.title %></h2>
+<div class="center">
+<%= image_tag(@book.coverpath, class:'materialboxed z-depth-2',width:'250', height:'300') %>
+</div>
 <ul class="collection with-header z-depth-2">
         <li class="collection-header"><h5 class="blue-text center">Book Info</h5></li>
-        <li class="collection-item">Category : Random</li>
-        <li class="collection-item">Author : Random</li>
-        <li class="collection-item">Publisher : Random</li>
-        <li class="collection-item">Year : 2007</li>
-        <li class="collection-item">ISBN : 123456</li>
-        <li class="collection-item">Format : Paperback</li>
-        <li class="collection-item">Pages : 200</li>
+        <li class="collection-item">Category : <%= @book.category.name %></li>
+        <li class="collection-item">Author : <%= @book.author.first_name %> <%= @book.author.last_name %></li>
+        <li class="collection-item">Publisher : <%= @book.publisher.name.capitalize %></li>
+        <li class="collection-item">Year : <%= @book.year %></li>
+        <li class="collection-item">ISBN : <%= @book.isbn %></li>
+        <li class="collection-item">Format : <%= @book.format %></li>
+        <li class="collection-item">Pages : <%= @book.pages %></li>
 </ul>
 
 <ul class="collapsible z-depth-2" data-collapsible="accordion">
     <li>
       <div class="collapsible-header blue-text"><i class="material-icons">info</i>Summary</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-body"><p><%= @book.summary %></p></div>
     </li>
 </ul>
 <div class="center">
-<%= link_to "Buy this Book",'https://www.google.co.in/?gfe_rd=cr&ei=S7fVV5GMJ-XI8AeWtZ-YDQ&gws_rd=ssl' , class:'waves-effect waves-light btn red', target:'_blank' %>
+<%= link_to "Buy this Book", @book.buy , class:'waves-effect waves-light btn red', target:'_blank' %>
 </div>

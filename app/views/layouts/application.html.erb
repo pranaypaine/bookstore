@@ -7,9 +7,8 @@
   	<%= csrf_meta_tags %>
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
+      <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -22,10 +21,11 @@
     
       <ul class="right hide-on-med-and-down">
       <li><a href="<%= about_path %>">About</a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Add new<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="add-new">Add new<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="manage">Manage<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
+        <ul id="add-new" class="dropdown-content">
         <li><a href="<%= new_book_path %>">Book</a></li>
         <li class="divider"></li>
         <li><a href="<%= new_author_path %>">Author</a></li>
@@ -33,6 +33,13 @@
         <li><a href="<%= new_category_path %>">Category</a></li>
         <li class="divider"></li>
         <li><a href="<%= new_publisher_path %>">Publishers</a></li>
+        </ul>
+        <ul id="manage" class="dropdown-content">
+        <li><a href="<%= authors_path %>">Author</a></li>
+        <li class="divider"></li>
+        <li><a href="<%= categories_path %>">Category</a></li>
+        <li class="divider"></li>
+        <li><a href="<%= publishers_path %>">Publishers</a></li>
         </ul>
       <ul id="nav-mobile" class="side-nav ">
       <li><a href=''>Home</a></li>
@@ -43,12 +50,25 @@
             <a class="collapsible-header">Add new<i class="material-icons right">arrow_drop_down</i></a>
             <div class="collapsible-body">
               <ul>
-              <li><a href="">Author</a></li>
+              <li><a href="<%= new_book_path %>">Book</a></li>
               <li class="divider"></li>
-              <li><a href="">Category</a></li>
+              <li><a href="<%= new_author_path %>">Author</a></li>
               <li class="divider"></li>
-              <li><a href="#!">Publishers</a></li>
+              <li><a href="<%= new_category_path %>">Category</a></li>
               <li class="divider"></li>
+              <li><a href="<%= new_publisher_path %>">Publishers</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a class="collapsible-header">Manage<i class="material-icons right">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+              <li><a href="<%= authors_path %>">Author</a></li>
+              <li class="divider"></li>
+              <li><a href="<%= categories_path %>">Category</a></li>
+              <li class="divider"></li>
+              <li><a href="<%= publishers_path %>">Publishers</a></li>
               </ul>
             </div>
           </li>
@@ -90,6 +110,7 @@
   </footer>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
       <script type="text/javascript">
   
